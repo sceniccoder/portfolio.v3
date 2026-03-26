@@ -105,3 +105,34 @@ magnets.forEach((magnet) => {
         magnet.style.transform = `translate(0px, 0px)`;
     });
 });
+
+// Mobile Nav Logic
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.add('active');
+        mobileNav.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+    });
+}
+
+if (mobileNavClose) {
+    mobileNavClose.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
+
+// Close mobile nav when a link is clicked
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
