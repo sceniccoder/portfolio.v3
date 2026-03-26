@@ -73,14 +73,12 @@ const revealOptions = {
     rootMargin: "0px 0px -50px 0px"
 };
 
-const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+const revealOnScroll = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
-        } else {
+        if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            // Stop observing once animated for performance, or keep it to re-animate
-            observer.unobserve(entry.target);
+        } else {
+            entry.target.classList.remove('active');
         }
     });
 }, revealOptions);
