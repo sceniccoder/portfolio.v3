@@ -88,7 +88,7 @@ revealElements.forEach(el => {
 });
 
 // Magnetic Buttons Interaction
-const magnets = document.querySelectorAll('.btn-primary, .nav-links a, .logo');
+const magnets = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-links a, .logo');
 
 magnets.forEach((magnet) => {
     magnet.addEventListener('mousemove', function(e) {
